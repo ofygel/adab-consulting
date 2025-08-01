@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+body {
+  @apply bg-dark-bg text-white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Адаптивные изображения и видео */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Адаптивные таблицы */
+table {
+  @apply w-full;
+  display: block;
+  overflow-x: auto;
+}
+
+/* Адаптивные формы */
+input, textarea, select, button {
+  @apply text-base;
+  min-height: 44px; /* Минимальный размер для тач-интерфейсов */
+}
+
+.video-carousel-shadow {
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+  body {
+    @apply text-sm;
+  }
+  
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Десктопные стили */
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+/* Добавьте кастомные классы через @layer */
+@layer components {
+  .gold-gradient {
+    background: linear-gradient(90deg, #D4AF37 0%, #B8860B 100%);
+  }
+  
+  .pattern-dots {
+    background-image: radial-gradient(rgba(212, 175, 55, 0.4) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+  
+  /* Адаптивные контейнеры */
+  .responsive-container {
+    @apply w-full px-4 md:px-6 lg:px-8 max-w-7xl mx-auto;
+  }
+  
+  /* Адаптивные кнопки */
+  .btn {
+    @apply px-6 py-3 rounded-lg transition-all;
+    @apply text-base md:text-lg;
+    @apply min-h-[44px] flex items-center justify-center;
+  }
+  
+  .btn-primary {
+    @apply gold-gradient text-dark-bg font-bold;
+  }
+}
